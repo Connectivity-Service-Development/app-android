@@ -11,6 +11,9 @@ lifecycle = "2.8.6"
 activity = "1.9.3"
 compose = "2024.10.00"
 material = "1.12.0"
+serialization = "1.7.3"
+retrofit = "2.11.0"
+okhttp = "4.12.0"
 
 junit = "4.13.2"
 android-junit = "1.2.1"
@@ -42,6 +45,14 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
+retrofit-bom = { group = "com.squareup.retrofit2", name = "retrofit-bom", version.ref = "retrofit" }
+retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit" }
+retrofit-converter-scalars = { group = "com.squareup.retrofit2", name = "converter-scalars" }
+retrofit-converter-serialization = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization" }
+okhttp-bom = { group = "com.squareup.okhttp3", name = "okhttp-bom", version.ref = "okhttp" }
+okHttp-core = { group = "com.squareup.okhttp3", name = "okhttp" }
+okHttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor" }
 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "android-junit" }
