@@ -63,6 +63,7 @@ dependencies {
     implementation(libs.okHttp.core)
     implementation(libs.okHttp.logging)
     implementation(libs.koin.annotations)
+    implementation(libs.kaal)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

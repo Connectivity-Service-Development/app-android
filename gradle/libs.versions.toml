@@ -16,6 +16,7 @@ retrofit = "2.11.0"
 okhttp = "4.12.0"
 koin = "4.0.0"
 koinAnnotation = "1.4.0"
+kaal = "0.11.0-SNAPSHOT"
 
 junit = "4.13.2"
 android-junit = "1.2.1"
@@ -61,6 +62,7 @@ koin-android = { group = "io.insert-koin", name = "koin-android" }
 koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose" }
 koin-annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koinAnnotation" }
 koin-annotations-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koinAnnotation" }
+kaal = { group = "cz.eman.kaal", name = "kaal-domain-android", version.ref = "kaal" }
 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "android-junit" }
