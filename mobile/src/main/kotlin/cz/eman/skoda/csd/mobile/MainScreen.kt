@@ -79,7 +79,7 @@ fun MainContainer(
                 .fillMaxSize(),
         ) {
             when (selectedItem.label) {
-                R.string.main_navigation_item_vehicle_label -> DashboardScreen()
+                R.string.main_navigation_item_vehicle_label -> DashboardScreen(onServicesClick = {})
                 R.string.main_navigation_item_maps_label -> MapScreen()
                 R.string.main_navigation_item_inspection_label -> InspectionScreen()
                 R.string.main_navigation_item_settings_label -> SettingsScreen()

@@ -6,4 +6,14 @@
     <string name="main_navigation_item_maps_label">Maps</string>
     <string name="main_navigation_item_inspection_label">Inspection</string>
     <string name="main_navigation_item_settings_label">Settings</string>
+
+    <string name="dashboard_item_vehicle_label">Vehicle</string>
+    <string name="dashboard_item_vehicle_status">Doors closed</string>
+    <string name="dashboard_item_services_label">Services</string>
+    <string name="dashboard_item_services_status_template">%1$s of %2$s active</string>
+    <string name="dashboard_item_services_warning">will soon expire</string>
+    <string name="dashboard_item_range_label">Range</string>
+    <string name="dashboard_item_range_status">Disconnected</string>
+    <string name="dashboard_item_temperature_label">Temperature</string>
+
 </resources>
