@@ -51,6 +51,8 @@ dependencies {
     coreLibraryDesugaring(libs.jdkLibs)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
     implementation(libs.material)
     implementation(libs.kotlinx.serialization.json)
     implementation(platform(libs.retrofit.bom))
