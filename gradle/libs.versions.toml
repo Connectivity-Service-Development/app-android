@@ -4,6 +4,7 @@ kotlin = "2.0.21"
 ksp = "2.0.21-1.0.25"
 openapi = "7.9.0"
 
+jdkLibs = "2.1.2"
 androidCore = "1.13.1"
 appcompat = "1.7.0"
 lifecycle = "2.8.6"
@@ -27,6 +28,7 @@ openapi = { id = "org.openapi.generator", version.ref = "openapi" }
 
 
 [libraries]
+jdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "jdkLibs" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
