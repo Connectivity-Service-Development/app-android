@@ -1,0 +1,203 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Connectivity Service Backend",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://backend-service-7snj9.ondigitalocean.app",
+      "description": "Generated server url"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Prepaid Services",
+      "description": "API for managing and retrieving prepaid services"
+    },
+    {
+      "name": "For demo only",
+      "description": "Reset the state of app, so there is 1 service expired and 1 not."
+    }
+  ],
+  "paths": {
+    "/api/prepaid-services/prolong": {
+      "post": {
+        "tags": [
+          "Prepaid Services"
+        ],
+        "summary": "Request to Prolong Prepaid Service",
+        "description": "Simulates a request to prolong the expiration date of a prepaid service for the user.",
+        "operationId": "prolongPrepaidService",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProlongRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Prolongation request successful"
+          }
+        }
+      }
+    },
+    "/api/prepaid-services/user": {
+      "get": {
+        "tags": [
+          "Prepaid Services"
+        ],
+        "summary": "Get User Prepaid Services",
+        "description": "Fetch a list of prepaid services for the authenticated user along with their expiration details.",
+        "operationId": "getUserPrepaidServices",
+        "responses": {
+          "200": {
+            "description": "List of user prepaid services",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserPrepaidService"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/prepaid-services/all": {
+      "get": {
+        "tags": [
+          "Prepaid Services"
+        ],
+        "summary": "Get All Prepaid Services",
+        "description": "Retrieve a list of all available prepaid services.",
+        "operationId": "getAllPrepaidServices",
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved list of prepaid services",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PrepaidService"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/technical": {
+      "delete": {
+        "tags": [
+          "For demo only"
+        ],
+        "operationId": "deleteAllUserPrepaidService",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ProlongRequest": {
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "description": "UUID of the prepaid service to prolong",
+            "format": "uuid",
+            "example": "c6d01a68-1014-4475-be25-b575e0f13f2d"
+          }
+        },
+        "required": [
+          "serviceId"
+        ]
+      },
+      "UserPrepaidService": {
+        "type": "object",
+        "properties": {
+          "prepaidServiceId": {
+            "type": "string",
+            "description": "Unique identifier of prepaid service",
+            "format": "uuid",
+            "example": "c56a4180-65aa-42ec-a945-5fd21dec0538"
+          },
+          "serviceName": {
+            "type": "string",
+            "description": "Name of the prepaid service",
+            "example": "INFOTAINMENT_ONLINE"
+          },
+          "expirationDate": {
+            "type": "string",
+            "description": "Expiration date of the service",
+            "format": "date",
+            "example": "2023-12-01"
+          },
+          "expired": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "prepaidServiceId",
+          "serviceName",
+          "expirationDate",
+          "expired"
+        ]
+      },
+      "PrepaidService": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier of the service",
+            "format": "uuid",
+            "example": "c56a4180-65aa-42ec-a945-5fd21dec0538"
+          },
+          "serviceName": {
+            "type": "string",
+            "description": "Name of the prepaid service",
+            "example": "INFOTAINMENT_ONLINE"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of the service",
+            "example": "Infotainment Online Service"
+          },
+          "price": {
+            "type": "number",
+            "description": "The price of service",
+            "example": 4.99
+          },
+          "bulletPoints": {
+            "type": "array",
+            "description": "A list of key features",
+            "items": {
+              "type": "string",
+              "description": "A list of key features"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "serviceName",
+          "description",
+          "price"
+        ],
+        "description": "Details of a prepaid service"
+      }
+    }
+  }
+}
