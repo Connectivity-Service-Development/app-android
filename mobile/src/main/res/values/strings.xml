@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">CSD</string>
+
+    <string name="main_navigation_item_vehicle_label">Vehicle</string>
+    <string name="main_navigation_item_maps_label">Maps</string>
+    <string name="main_navigation_item_inspection_label">Inspection</string>
+    <string name="main_navigation_item_settings_label">Settings</string>
 </resources>
