@@ -14,6 +14,8 @@ material = "1.12.0"
 serialization = "1.7.3"
 retrofit = "2.11.0"
 okhttp = "4.12.0"
+koin = "4.0.0"
+koinAnnotation = "1.4.0"
 
 junit = "4.13.2"
 android-junit = "1.2.1"
@@ -53,6 +55,12 @@ retrofit-converter-serialization = { group = "com.squareup.retrofit2", name = "c
 okhttp-bom = { group = "com.squareup.okhttp3", name = "okhttp-bom", version.ref = "okhttp" }
 okHttp-core = { group = "com.squareup.okhttp3", name = "okhttp" }
 okHttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor" }
+koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koin" }
+koin-core = { group = "io.insert-koin", name = "koin-core" }
+koin-android = { group = "io.insert-koin", name = "koin-android" }
+koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose" }
+koin-annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koinAnnotation" }
+koin-annotations-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koinAnnotation" }
 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "android-junit" }

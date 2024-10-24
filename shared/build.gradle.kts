@@ -62,6 +62,7 @@ dependencies {
     implementation(platform(libs.okhttp.bom))
     implementation(libs.okHttp.core)
     implementation(libs.okHttp.logging)
+    implementation(libs.koin.annotations)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
