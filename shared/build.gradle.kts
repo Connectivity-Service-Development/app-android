@@ -62,11 +62,18 @@ dependencies {
     implementation(platform(libs.okhttp.bom))
     implementation(libs.okHttp.core)
     implementation(libs.okHttp.logging)
+    implementation(libs.koin.core)
     implementation(libs.koin.annotations)
+    ksp(libs.koin.annotations.compiler)
     implementation(libs.kaal)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+ksp {
+    arg("KOIN_CONFIG_CHECK", "false")
+    arg("KOIN_DEFAULT_MODULE", "true")
 }
 
 val modulePackageName = "${android.namespace}.data"
