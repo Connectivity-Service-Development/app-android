@@ -14,7 +14,7 @@ class MainActivity : ComponentActivity() {
             ConnectivityServicesDevelopmentTheme(
                 dynamicColor = false,
             ) {
-                // TODO
+                App()
             }
         }
     }
