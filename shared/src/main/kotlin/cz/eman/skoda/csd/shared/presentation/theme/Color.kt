@@ -3,6 +3,9 @@ package cz.eman.skoda.csd.shared.presentation.theme
 import androidx.compose.ui.graphics.Color
 
 val Background = Color(0xFF161718)
+val BackgroundGray = Color(0xFF303132)
+val Divider = Color(0x1FF3F3F3)
+
 val White = Color(0xFFFFFFFF)
 val Black = Color(0xFFEFB8C8)
 val Gray = Color(0xFFC4C6C7)

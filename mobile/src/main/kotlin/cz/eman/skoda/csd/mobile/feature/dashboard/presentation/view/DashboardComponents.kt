@@ -38,6 +38,7 @@ import cz.eman.skoda.csd.mobile.feature.dashboard.presentation.model.Temperature
 import cz.eman.skoda.csd.mobile.feature.dashboard.presentation.model.VehicleItem
 import cz.eman.skoda.csd.shared.presentation.theme.Background
 import cz.eman.skoda.csd.shared.presentation.theme.BackgroundGray
+import cz.eman.skoda.csd.shared.presentation.theme.Divider
 import cz.eman.skoda.csd.shared.presentation.theme.Gray
 import cz.eman.skoda.csd.shared.presentation.theme.Green
 import cz.eman.skoda.csd.shared.presentation.theme.Orange
@@ -93,7 +94,7 @@ internal fun VehicleCard(
 
             Spacer(modifier = Modifier.height(height = 10.dp))
 
-            HorizontalDivider(color = Color(0x1FF3F3F3))
+            HorizontalDivider(color = Divider)
 
             Spacer(modifier = Modifier.height(height = 10.dp))
 
@@ -171,7 +172,7 @@ internal fun ServicesCard(
             Spacer(modifier = Modifier.height(height = 10.dp))
 
             if (model.expired > 0) {
-                HorizontalDivider(color = Color(0x1FF3F3F3))
+                HorizontalDivider(color = Divider)
 
                 Spacer(modifier = Modifier.height(height = 10.dp))
 

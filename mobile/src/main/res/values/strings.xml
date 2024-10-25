@@ -2,6 +2,10 @@
 <resources>
     <string name="app_name" translatable="false">CSD</string>
 
+    <string name="common_active">Active</string>
+    <string name="common_inactive">Inactive</string>
+    <string name="common_soon_expire">Will soon expire %1$s</string>
+
     <string name="main_navigation_item_vehicle_label">Vehicle</string>
     <string name="main_navigation_item_maps_label">Maps</string>
     <string name="main_navigation_item_inspection_label">Inspection</string>

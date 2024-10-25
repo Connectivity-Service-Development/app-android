@@ -30,6 +30,7 @@ import cz.eman.skoda.csd.mobile.feature.inspection.InspectionScreen
 import cz.eman.skoda.csd.mobile.feature.map.MapScreen
 import cz.eman.skoda.csd.mobile.feature.settings.SettingsScreen
 import cz.eman.skoda.csd.shared.presentation.theme.Background
+import cz.eman.skoda.csd.shared.presentation.theme.Divider
 import cz.eman.skoda.csd.shared.presentation.theme.Green
 import cz.eman.skoda.csd.shared.presentation.theme.SkodaNext
 import cz.eman.skoda.csd.shared.presentation.theme.White
@@ -99,7 +100,7 @@ private fun BottomNavigation(
         modifier = modifier
             .drawBehind {
                 drawLine(
-                    color = Color(0x1FF3F3F3),
+                    color = Divider,
                     start = Offset.Zero,
                     end = Offset(
                         x = size.width,
