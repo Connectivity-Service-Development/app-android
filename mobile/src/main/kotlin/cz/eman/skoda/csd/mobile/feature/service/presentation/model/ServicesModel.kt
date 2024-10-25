@@ -7,6 +7,7 @@ data class ServicesModel(
 )
 
 data class ServiceItem(
+    val id: UUID,
     val name: String,
     val type: Type,
     val expiresIn: String? = null,

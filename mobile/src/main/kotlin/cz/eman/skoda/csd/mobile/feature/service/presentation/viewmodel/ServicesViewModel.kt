@@ -50,6 +50,7 @@ class ServicesViewModel(
                     val items = allServicesResult.value.map { service ->
                         val activeService = activeServices[service.id]
                         ServiceItem(
+                            id = service.id,
                             name = service.name,
                             type = if (activeService != null) Type.Active else Type.Inactive,
                             expiresIn = activeService?.expiresIn

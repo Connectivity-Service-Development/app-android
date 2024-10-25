@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.sp
 import cz.eman.skoda.csd.mobile.R
 import cz.eman.skoda.csd.mobile.feature.service.presentation.model.ServiceItem
 import cz.eman.skoda.csd.mobile.feature.service.presentation.model.ServicesModel
+import cz.eman.skoda.csd.mobile.feature.service.presentation.model.Type
 import cz.eman.skoda.csd.mobile.feature.service.presentation.viewmodel.ServicesViewModel
 import cz.eman.skoda.csd.shared.presentation.theme.Background
 import cz.eman.skoda.csd.shared.presentation.theme.BackgroundGray
@@ -50,11 +51,13 @@ import cz.eman.skoda.csd.shared.presentation.theme.OrangeDark
 import cz.eman.skoda.csd.shared.presentation.theme.SkodaNext
 import cz.eman.skoda.csd.shared.presentation.theme.White
 import org.koin.androidx.compose.koinViewModel
+import java.util.UUID
 
 @Composable
 fun ServicesScreen(
     viewModel: ServicesViewModel = koinViewModel(),
     onBackClick: () -> Unit,
+    onServiceClick: (UUID) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val model by viewModel.model.collectAsState()
@@ -63,7 +66,7 @@ fun ServicesScreen(
         model = model,
         onBackButtonClick = onBackClick,
         onOwnerPanelClick = { /* TODO */ },
-        onItemClick = { /* TODO */ },
+        onItemClick = { onServiceClick(it.id) },
     )
 }
 
@@ -156,11 +159,13 @@ private fun ServicesScreenPreview() {
         model = ServicesModel(
             items = listOf(
                 ServiceItem(
+                    id = UUID.randomUUID(),
                     name = "Infotainment Online",
                     type = Type.Active,
                     expiresIn = "12/11/2024",
                 ),
                 ServiceItem(
+                    id = UUID.randomUUID(),
                     name = "Media Streaming",
                     type = Type.Inactive,
                 ),
@@ -331,6 +336,7 @@ private fun ServiceItem(
 private fun ServiceItemPreview() {
     ServiceItem(
         model = ServiceItem(
+            id = UUID.randomUUID(),
             name = "Infotainment Online",
             type = Type.Active,
             expiresIn = "12/11/2024",

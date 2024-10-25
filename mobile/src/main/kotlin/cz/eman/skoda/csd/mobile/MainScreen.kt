@@ -25,15 +25,58 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.fastForEach
+import androidx.navigation.NavController
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import cz.eman.skoda.csd.mobile.feature.dashboard.presentation.view.DashboardContainer
 import cz.eman.skoda.csd.mobile.feature.inspection.InspectionScreen
 import cz.eman.skoda.csd.mobile.feature.map.MapScreen
+import cz.eman.skoda.csd.mobile.feature.service.presentation.view.ServiceDetailScreen
 import cz.eman.skoda.csd.mobile.feature.settings.SettingsScreen
 import cz.eman.skoda.csd.shared.presentation.theme.Background
 import cz.eman.skoda.csd.shared.presentation.theme.Divider
 import cz.eman.skoda.csd.shared.presentation.theme.Green
 import cz.eman.skoda.csd.shared.presentation.theme.SkodaNext
 import cz.eman.skoda.csd.shared.presentation.theme.White
+import java.util.UUID
+
+@Composable
+fun App(
+    modifier: Modifier = Modifier,
+) {
+    val navController = rememberNavController()
+    NavHost(
+        modifier = modifier,
+        navController = navController,
+        startDestination = "/",
+    ) {
+        composable("/") {
+            MainContainer(
+                navController = navController,
+            )
+        }
+
+        composable(
+            route = "services/{id}",
+            arguments = listOf(
+                navArgument("id") {
+                    nullable = false
+                    type = NavType.StringType
+                },
+            ),
+        ) { entry ->
+            val arguments = checkNotNull(entry.arguments) { "Missing arguments" }
+            val serviceId = checkNotNull(arguments.getString("id")) { "Service ID is required" }
+            ServiceDetailScreen(
+                serviceId = UUID.fromString(serviceId),
+                onBackClick = navController::navigateUp,
+            )
+        }
+    }
+}
 
 data class NavigationItem(
     @StringRes val label: Int,
@@ -61,6 +104,7 @@ val MainMenu = listOf(
 
 @Composable
 fun MainContainer(
+    navController: NavController,
     modifier: Modifier = Modifier,
 ) {
     val (selectedItem, selectItem) = remember { mutableStateOf(MainMenu[0]) }
@@ -80,7 +124,10 @@ fun MainContainer(
                 .fillMaxSize(),
         ) {
             when (selectedItem.label) {
-                R.string.main_navigation_item_vehicle_label -> DashboardContainer()
+                R.string.main_navigation_item_vehicle_label -> DashboardContainer(
+                    rootNavController = navController,
+                )
+
                 R.string.main_navigation_item_maps_label -> MapScreen()
                 R.string.main_navigation_item_inspection_label -> InspectionScreen()
                 R.string.main_navigation_item_settings_label -> SettingsScreen()

@@ -2,6 +2,7 @@ package cz.eman.skoda.csd.mobile.feature.dashboard.presentation.view
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -9,6 +10,7 @@ import cz.eman.skoda.csd.mobile.feature.service.presentation.view.ServicesScreen
 
 @Composable
 fun DashboardContainer(
+    rootNavController: NavController,
     modifier: Modifier = Modifier,
 ) {
     val navController = rememberNavController()
@@ -28,6 +30,9 @@ fun DashboardContainer(
         composable("services") {
             ServicesScreen(
                 onBackClick = navController::navigateUp,
+                onServiceClick = { id ->
+                    rootNavController.navigate("services/$id")
+                }
             )
         }
     }
