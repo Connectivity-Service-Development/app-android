@@ -10,20 +10,29 @@
 ### Build
 
 - Android Application (all configuration)
-  `./gradlew :mobile:assemble`
+
+  ```shell
+  ./gradlew :mobile:assemble
+  ```
 
 - Android Automotive Application (all configuration)
-  `./gradlew :automotive:assemble`
+
+  ```shell
+  ./gradlew :automotive:assemble
+  ```
 
 ## Project structure
 
 - `automotive` module
+
   The module contains implementation of the Android Automotive Application
 
 - `mobile` module
+
   The module contains implementation of the Android Application
 
 - `shared` module
+
   The module contains shared components like colors, fonts, use-cases etc.
 
 ## Architecture
