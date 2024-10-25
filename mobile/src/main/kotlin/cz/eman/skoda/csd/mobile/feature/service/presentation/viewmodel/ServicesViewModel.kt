@@ -10,6 +10,7 @@ import cz.eman.skoda.csd.mobile.feature.service.presentation.model.Type
 import cz.eman.skoda.csd.shared.feature.service.domain.model.ActiveService
 import cz.eman.skoda.csd.shared.feature.service.domain.usecase.GetActiveServicesUseCase
 import cz.eman.skoda.csd.shared.feature.service.domain.usecase.GetAllServicesUseCase
+import cz.eman.skoda.csd.shared.feature.service.domain.usecase.IsServiceExpiringUseCase
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -17,15 +18,14 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
-import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.time.temporal.ChronoUnit
 import java.util.Locale
 
 @KoinViewModel
 class ServicesViewModel(
     private val getAllServices: GetAllServicesUseCase,
     private val getActiveServices: GetActiveServicesUseCase,
+    private val isServiceExpiring: IsServiceExpiringUseCase,
 ) : ViewModel() {
 
     private val _model = MutableStateFlow(ServicesModel())
@@ -55,7 +55,7 @@ class ServicesViewModel(
                             type = if (activeService != null) Type.Active else Type.Inactive,
                             expiresIn = activeService?.expiresIn
                                 ?.takeIf { expiresIn ->
-                                    ChronoUnit.DAYS.between(LocalDate.now(), expiresIn) <= 30
+                                    isServiceExpiring(expiresIn)
                                 }
                                 ?.let(FormatterExpiresIn::format),
                         )

@@ -6,6 +6,7 @@ import cz.eman.kaal.result.Result
 import cz.eman.skoda.csd.mobile.feature.service.presentation.model.ServiceDetailModel
 import cz.eman.skoda.csd.mobile.feature.service.presentation.model.Type
 import cz.eman.skoda.csd.shared.feature.service.domain.usecase.GetPrepaidServiceWithExpirationUseCase
+import cz.eman.skoda.csd.shared.feature.service.domain.usecase.IsServiceExpiringUseCase
 import cz.eman.skoda.csd.shared.feature.service.domain.usecase.ProlongServiceUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,9 +15,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 import org.koin.core.annotation.Provided
-import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.time.temporal.ChronoUnit
 import java.util.Locale
 import java.util.UUID
 
@@ -24,6 +23,7 @@ import java.util.UUID
 class ServiceDetailViewModel(
     @Provided private val id: UUID,
     private val getService: GetPrepaidServiceWithExpirationUseCase,
+    private val isServiceExpiring: IsServiceExpiringUseCase,
     private val prolongService: ProlongServiceUseCase,
 ) : ViewModel() {
 
@@ -49,7 +49,7 @@ class ServiceDetailViewModel(
                                 isSoonExpiration = result.value.expiration
                                     ?.expiresIn
                                     ?.let { expiresIn ->
-                                        ChronoUnit.DAYS.between(LocalDate.now(), expiresIn) <= 30
+                                        isServiceExpiring(expiresIn)
                                     }
                                     ?: false,
                             ),
