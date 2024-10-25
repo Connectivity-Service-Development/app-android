@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">CSD</string>
+
+    <string name="common_expires_template">" expires "</string>
+
+    <string name="dashboard_title">You will soon lose access to your prepaid services</string>
+    <string name="dashboard_content">You have been actively using the services regularly over the last period. Some services will soon expire and won\'t be available. Renew now to keep using them:</string>
+    <string name="dashboard_button_discover">Renew Access</string>
 </resources>
