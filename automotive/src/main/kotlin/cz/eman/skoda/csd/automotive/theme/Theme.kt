@@ -1,4 +1,4 @@
-package cz.eman.skoda.csd.mobile.ui.theme
+package cz.eman.skoda.csd.automotive.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
