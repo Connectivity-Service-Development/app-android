@@ -6,7 +6,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Modifier
 import cz.eman.skoda.csd.mobile.ui.theme.ConnectivityServicesDevelopmentTheme
+import cz.eman.skoda.csd.shared.presentation.theme.Background
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +22,14 @@ class MainActivity : ComponentActivity() {
             ConnectivityServicesDevelopmentTheme(
                 dynamicColor = false,
             ) {
-                MainContainer()
+                Surface(
+                    color = Background,
+                    contentColor = androidx.compose.ui.graphics.Color.Unspecified,
+                ) {
+                    App(
+                        modifier = Modifier.safeDrawingPadding(),
+                    )
+                }
             }
         }
     }
