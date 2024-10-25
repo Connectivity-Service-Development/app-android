@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import cz.eman.skoda.csd.automotive.feature.dashboard.presentation.view.DashboardScreen
+import cz.eman.skoda.csd.automotive.feature.service.presentation.view.ServicesScreen
 
 @Composable
 fun App(
@@ -25,6 +26,15 @@ fun App(
                 onBackClick = activity::onBackPressed,
                 onDiscoverClick = {
                     navController.navigate("services")
+                },
+            )
+        }
+
+        composable(route = "services") {
+            ServicesScreen(
+                onBackClick = navController::navigateUp,
+                onServiceClick = { id ->
+
                 },
             )
         }

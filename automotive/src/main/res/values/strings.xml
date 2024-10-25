@@ -2,9 +2,19 @@
 <resources>
     <string name="app_name" translatable="false">CSD</string>
 
+    <string name="common_active">Active</string>
+    <string name="common_inactive">Inactive</string>
+    <string name="common_expiring">Expiring</string>
+    <string name="common_expires">Expires %1$s</string>
+    <string name="common_soon_expire">Expires soon</string>
     <string name="common_expires_template">" expires "</string>
 
     <string name="dashboard_title">You will soon lose access to your prepaid services</string>
     <string name="dashboard_content">You have been actively using the services regularly over the last period. Some services will soon expire and won\'t be available. Renew now to keep using them:</string>
     <string name="dashboard_button_discover">Renew Access</string>
+
+    <string name="services_title">Prepaid Services</string>
+    <string name="services_label_status">Status</string>
+    <string name="services_label_expiration">Expiration</string>
+    <string name="services_button_order">Order</string>
 </resources>
