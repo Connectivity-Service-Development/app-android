@@ -9,13 +9,13 @@
 
 ### Build
 
-- Android Application (all configuration)
+- Android Application (all configurations)
 
   ```shell
   ./gradlew :mobile:assemble
   ```
 
-- Android Automotive Application (all configuration)
+- Android Automotive Application (all configurations)
 
   ```shell
   ./gradlew :automotive:assemble
@@ -25,15 +25,15 @@
 
 - `automotive` module
 
-  The module contains implementation of the Android Automotive Application
+  The module contains an implementation of the Android Automotive Application.
 
 - `mobile` module
 
-  The module contains implementation of the Android Application
+  The module contains an implementation of the Android Application.
 
 - `shared` module
 
-  The module contains shared components like colors, fonts, use-cases etc.
+  The module contains shared components such as colors, fonts, use-cases, etc.
 
 ## Architecture
 
