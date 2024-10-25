@@ -49,7 +49,6 @@ class ServiceRepository(
 
     suspend fun prolongService(id: UUID): InternalResult<Unit> = callApi(
         operation = { apiService.prolongPrepaidService(ProlongRequestDto(serviceId = id)) },
-        map = { /* Unit */ },
     )
 
     private inline fun <T, R : Any> callApi(
@@ -60,6 +59,28 @@ class ServiceRepository(
             val response = operation()
             if (response.isSuccessful) {
                 success(map(checkNotNull(response.body()) { "Missing response body" }))
+            } else {
+                kotlin.error("Unexpected response")
+            }
+        } catch (ex: CancellationException) {
+            throw ex
+        } catch (ex: Throwable) {
+            error(
+                ErrorInfo(
+                    code = ErrorCode.UNDEFINED,
+                    exception = ex,
+                ),
+            )
+        }
+    }
+
+    private inline fun callApi(
+        operation: () -> Response<Unit>,
+    ): InternalResult<Unit> {
+        return try {
+            val response = operation()
+            if (response.isSuccessful) {
+                success(Unit)
             } else {
                 kotlin.error("Unexpected response")
             }
