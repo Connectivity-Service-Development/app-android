@@ -4,6 +4,7 @@
 
     <string name="common_active">Active</string>
     <string name="common_inactive">Inactive</string>
+    <string name="common_expires">Expires %1$s</string>
     <string name="common_soon_expire">Will soon expire %1$s</string>
 
     <string name="main_navigation_item_vehicle_label">Vehicle</string>
@@ -20,4 +21,8 @@
     <string name="dashboard_item_range_status">Disconnected</string>
     <string name="dashboard_item_temperature_label">Temperature</string>
 
+    <string name="service_detail_section_general_title">General Information</string>
+    <string name="service_detail_section_personal_title">Your Personal Data</string>
+    <string name="service_detail_section_description_title">Description</string>
+    <string name="service_detail_button_order">Order</string>
 </resources>

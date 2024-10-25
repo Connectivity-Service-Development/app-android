@@ -157,12 +157,12 @@ private fun ServicesScreenPreview() {
             items = listOf(
                 ServiceItem(
                     name = "Infotainment Online",
-                    type = ServiceItem.Type.Active,
+                    type = Type.Active,
                     expiresIn = "12/11/2024",
                 ),
                 ServiceItem(
                     name = "Media Streaming",
-                    type = ServiceItem.Type.Inactive,
+                    type = Type.Inactive,
                 ),
             ),
         ),
@@ -332,7 +332,7 @@ private fun ServiceItemPreview() {
     ServiceItem(
         model = ServiceItem(
             name = "Infotainment Online",
-            type = ServiceItem.Type.Active,
+            type = Type.Active,
             expiresIn = "12/11/2024",
         ),
         onClick = {},

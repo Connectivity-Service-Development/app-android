@@ -6,6 +6,7 @@ import cz.eman.kaal.result.Result
 import cz.eman.kaal.result.successOrNull
 import cz.eman.skoda.csd.mobile.feature.service.presentation.model.ServiceItem
 import cz.eman.skoda.csd.mobile.feature.service.presentation.model.ServicesModel
+import cz.eman.skoda.csd.mobile.feature.service.presentation.model.Type
 import cz.eman.skoda.csd.shared.feature.service.domain.model.ActiveService
 import cz.eman.skoda.csd.shared.feature.service.domain.usecase.GetActiveServicesUseCase
 import cz.eman.skoda.csd.shared.feature.service.domain.usecase.GetAllServicesUseCase
@@ -50,7 +51,7 @@ class ServicesViewModel(
                         val activeService = activeServices[service.id]
                         ServiceItem(
                             name = service.name,
-                            type = if (activeService != null) ServiceItem.Type.Active else ServiceItem.Type.Inactive,
+                            type = if (activeService != null) Type.Active else Type.Inactive,
                             expiresIn = activeService?.expiresIn
                                 ?.takeIf { expiresIn ->
                                     ChronoUnit.DAYS.between(LocalDate.now(), expiresIn) <= 30
