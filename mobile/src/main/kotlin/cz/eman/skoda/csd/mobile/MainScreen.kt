@@ -25,7 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.fastForEach
-import cz.eman.skoda.csd.mobile.feature.dashboard.presentation.view.DashboardScreen
+import cz.eman.skoda.csd.mobile.feature.dashboard.presentation.view.DashboardContainer
 import cz.eman.skoda.csd.mobile.feature.inspection.InspectionScreen
 import cz.eman.skoda.csd.mobile.feature.map.MapScreen
 import cz.eman.skoda.csd.mobile.feature.settings.SettingsScreen
@@ -80,7 +80,7 @@ fun MainContainer(
                 .fillMaxSize(),
         ) {
             when (selectedItem.label) {
-                R.string.main_navigation_item_vehicle_label -> DashboardScreen(onServicesClick = {})
+                R.string.main_navigation_item_vehicle_label -> DashboardContainer()
                 R.string.main_navigation_item_maps_label -> MapScreen()
                 R.string.main_navigation_item_inspection_label -> InspectionScreen()
                 R.string.main_navigation_item_settings_label -> SettingsScreen()
